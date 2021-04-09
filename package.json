@@ -8,8 +8,9 @@
     "client": "npm start --prefix frontend",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "start": "node frontend/public/index.js",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "build": "webpack"
   },
+  "heroku-run-build-script": true,
   "engines": {
     "node": "v13.9.0"
   },
