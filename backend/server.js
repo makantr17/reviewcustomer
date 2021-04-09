@@ -34,6 +34,6 @@ app.use("/api/reviews", reviewRouter);
 app.use("/api/users", userRouter);
 app.use("/api/collections", collectionRouter);
 
-app.use(express.static(path.resolve(__dirname, 'frontend/build')));
+// app.use(express.static(path.resolve(__dirname, 'frontend/')));
 
 app.listen(port, ()=>{ console.log("Server started at htttp://localhost:7000")});
