@@ -6,7 +6,8 @@
   "scripts": {
     "server": "nodemon --watch backend --exec babel-node backend/server.js",
     "client": "npm start --prefix frontend",
-    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "start": "npm start --prefix frontend"
   },
   "engines": {
     "node": "v13.9.0"
