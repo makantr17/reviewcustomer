@@ -7,8 +7,8 @@
     "server": "nodemon --watch backend --exec babel-node backend/server.js",
     "client": "npm start --prefix frontend",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
-    "start": "node frontend/src/index.js",
-    "build": "cd frontend && npm install && npm run build"
+    "build": "cd frontend && npm install && npm run build",
+    "start": "node frontend/src/index.js"
   },
   "engines": {
     "node": "v13.9.0"
