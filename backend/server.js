@@ -10,7 +10,6 @@ import productRouter from './routers/productRouter'
 import reviewRouter from './routers/reviewRouter'
 import userRouter from './routers/userRouter'
 import collectionRouter from './routers/dataRouter'
-import companyRouter from './routers/companyRouter'
 
 const port = process.env.PORT || 7000
 // config mongoose db
@@ -33,7 +32,6 @@ app.use("/api/products", productRouter);
 app.use("/api/reviews", reviewRouter);
 app.use("/api/users", userRouter);
 app.use("/api/collections", collectionRouter);
-app.use("/api/company", companyRouter);
 
 
 app.listen(port, ()=>{ console.log("Server started at htttp://localhost:7000")});

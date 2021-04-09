@@ -5,24 +5,24 @@ import jwt from 'jsonwebtoken'
 import config from '../config'
 
 
-var nodemailer = require('nodemailer');
+// var nodemailer = require('nodemailer');
 var cors = require('cors');
-const creds = require('../configMail');
+// const creds = require('../configMail');
 
 const router = express.Router();
 
 // Transporter
-var transport = {
-    host: 'smtp.gmail.com', port: 587, auth: {user: creds.USER, pass: creds.PASS}
-}
-var transporter = nodemailer.createTransport(transport)
-transporter.verify((error, success) => {
-  if (error) {
-    console.log(error);
-  }else {
-    console.log('Server is ready to take messages');
-  }
-});
+// var transport = {
+//     host: 'smtp.gmail.com', port: 587, auth: {user: creds.USER, pass: creds.PASS}
+// }
+// var transporter = nodemailer.createTransport(transport)
+// transporter.verify((error, success) => {
+//   if (error) {
+//     console.log(error);
+//   }else {
+//     console.log('Server is ready to take messages');
+//   }
+// });
 
 
 // Email Sign-up
@@ -33,24 +33,24 @@ router.post('/sendActivationLink', async (req, res)=>{
     if(signinupUser){
         return res.status(400).send({message: "user with this email exists"})
     }
-    var content = `name: ${req.body.name} \n email: ${"kantemamady92@gmail.com"} \n message:
-    <h2>Sareti Activation Token</h2>
-    <p>Click to this link to activate your account, Token</p>
-    <a target="_" href="${serverLink()}/register/${singupToken({name: req.body.name, email: req.body.email, password: req.body.password})}">Activate your account</a>`
+    // var content = `name: ${req.body.name} \n email: ${"kantemamady92@gmail.com"} \n message:
+    // <h2>Sareti Activation Token</h2>
+    // <p>Click to this link to activate your account, Token</p>
+    // <a target="_" href="${serverLink()}/register/${singupToken({name: req.body.name, email: req.body.email, password: req.body.password})}">Activate your account</a>`
 
-    var mail = {
-        from: "SARETI Shop",
-        to: req.body.email,  // Change to email address that you want to receive messages on
-        subject: 'Confirm the password',
-        html: content
-    }
-    transporter.sendMail(mail, (err, data) => {
-        if (err) {
-            res.json({message: 'Failed to send message'})
-        } else {
-            res.json({message: 'Succeded sending email'})
-        }
-    })
+    // var mail = {
+    //     from: "SARETI Shop",
+    //     to: req.body.email,  // Change to email address that you want to receive messages on
+    //     subject: 'Confirm the password',
+    //     html: content
+    // }
+    // transporter.sendMail(mail, (err, data) => {
+    //     if (err) {
+    //         res.json({message: 'Failed to send message'})
+    //     } else {
+    //         res.json({message: 'Succeded sending email'})
+    //     }
+    // })
 });
 
 
@@ -62,24 +62,24 @@ router.post('/sendResetPassword', async (req, res)=>{
     if(!userInfo){
         return res.status(400).send({message: email})
     }
-    var content = `name: ${userInfo.email} \n ID: ${userInfo._id} \n message:
-    <h2>Sareti Activation Token</h2>
-    <p>Click to this link to activate your account, Token</p>
-    <a target="_" href="${serverLink()}/resetPass/${resetToken({id: userInfo._id})}">Reset your account Password</a>`
+    // var content = `name: ${userInfo.email} \n ID: ${userInfo._id} \n message:
+    // <h2>Sareti Activation Token</h2>
+    // <p>Click to this link to activate your account, Token</p>
+    // <a target="_" href="${serverLink()}/resetPass/${resetToken({id: userInfo._id})}">Reset your account Password</a>`
 
-    var mail = {
-        from: "SARETI Shop",
-        to: req.body.email,  // Change to email address that you want to receive messages on
-        subject: 'Confirm the password',
-        html: content
-    }
-    transporter.sendMail(mail, (err, data) => {
-        if (err) {
-            res.json({message: 'Failed to send message'})
-        } else {
-            res.json({message: 'Succeded sending email'})
-        }
-    })
+    // var mail = {
+    //     from: "SARETI Shop",
+    //     to: req.body.email,  // Change to email address that you want to receive messages on
+    //     subject: 'Confirm the password',
+    //     html: content
+    // }
+    // transporter.sendMail(mail, (err, data) => {
+    //     if (err) {
+    //         res.json({message: 'Failed to send message'})
+    //     } else {
+    //         res.json({message: 'Succeded sending email'})
+    //     }
+    // })
 });
 
 
